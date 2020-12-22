@@ -21,7 +21,14 @@
   Let's first look at an example that will teach you how to use these methods.
 */
 
-function bushChecker() {}
+function bushChecker(colours) {
+  if (colours.some(color => color != "pink")) {
+    return "Toxic! Leave bush alone!";
+  }
+  return "Bush is safe to eat from";
+}
+
+
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 
