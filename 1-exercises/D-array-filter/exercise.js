@@ -9,7 +9,7 @@
 var pairsByIndexRaw = [[0, 3], [1, 2], [2, 1], null, [1], false, "whoops"];
 
 var pairsByIndex = pairsByIndexRaw.filter(function (val) {
-  return (val != null && val.length === 2);
+  return (Array.isArray(val) && val.length === 2);
 }); // Complete this statement
 
 var students = ["Islam", "Lesley", "Harun", "Rukmini"];
