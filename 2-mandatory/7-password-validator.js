@@ -22,11 +22,6 @@ PasswordValidationResult=  [false, false, false, false, true]
 
 */
 
-/********************************* TRAINEE NOTE ************************************
- * The function below fails the second test due to apparent typo in the reference
- * "expected" result. That's to say: "Pl3nty!" should be a valid password per the 
- * given criteria.
-************************************************************************************/
 function validatePasswords(passwords) {
   const criteria1 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
     "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -38,13 +33,17 @@ function validatePasswords(passwords) {
 
   const criteria4 = ["!", "#", "$", "%", ".", "*", "&"]
   
-  let validPasswords = passwords.map(function (password) {
-    password = password.split("");
-    return password.length >= 5
-      && password.some(char => criteria1.includes(char))
-      && password.some(char => criteria2.includes(char))
-      && password.some(char => criteria3.includes(char))
-      && password.some(char => criteria4.includes(char));
+  let validPasswords = passwords.map(function (password,index) {
+    if (index===0 || !passwords.slice(0,index).includes(password)) {
+      password = password.split("");
+      return password.length >= 5
+        && password.some(char => criteria1.includes(char))
+        && password.some(char => criteria2.includes(char))
+        && password.some(char => criteria3.includes(char))
+        && password.some(char => criteria4.includes(char));
+    } else {
+      return false;
+    }    
   });
 
   return validPasswords;
