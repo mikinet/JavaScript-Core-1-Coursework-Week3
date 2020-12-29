@@ -35,7 +35,7 @@ function sortAges(arr) {
         // in the unordered section of filteredArr. 
       for (let i = 0; i < filteredArr.length; i++){ // do this for every number in the list, starting from the first one
         let largest = filteredArr[i]; // simplify expression. Assume largest number to be the current number under test
-        // let pos = i+1;  // position (index) of the first number we start to compare largest with  
+          
         // start comparing
         for (let j = i+1; j < filteredArr.length; j++){ // scan through the list  
           let otherNum = filteredArr[j];  // simplify expression
